@@ -1,32 +1,54 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+    <TopBar />
+    <div class="layout">
+        <div class="nav">
+            <SideNav />
+        </div>
+        <div class="app-content">
+            <router-view/>
+        </div>
     </div>
-    <router-view/>
   </div>
 </template>
+
+<script>
+import SideNav from '@/components/SideNav.vue'
+import TopBar from '@/components/TopBar.vue'
+
+export default {
+    name: 'App',
+    components: {
+      TopBar,
+      SideNav
+    }
+}
+</script>
 
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+  margin: 0;
 }
 
-#nav {
-  padding: 30px;
+.layout {
+    display: flex;
 }
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
+.nav {
+    width: 20%;
+    /* text-align: center; */
+    padding-top: 20px;
+    /* background: #179D27; */
+    background: #1bb12c;
 }
 
-#nav a.router-link-exact-active {
-  color: #42b983;
+.app-content {
+    width: 78%;
+    margin-left: 10px;
+    /* overflow: scroll; */
 }
+
 </style>
