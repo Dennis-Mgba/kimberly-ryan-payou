@@ -1,5 +1,7 @@
 .content, .content-head {
-    padding-left: 30px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 15px;
     padding-right: 20px;
 }
 
@@ -10,15 +12,19 @@
     border-bottom: 2px solid #F97B00;
 }
 
-.btn-x-s {
+.content {
+    border: 1px solid #cecaca;
+    /* min-height: 560px; */
+    height: auto;
+    padding-bottom: 3%;
 }
 
 table {
   border: 1px solid #ccc;
   border-collapse: collapse;
-  margin: 0;
+  margin: 0 15px;
   padding: 0;
-  width: 100%;
+  width: 99%;
   table-layout: fixed;
 }
 
@@ -133,11 +139,7 @@ table td:first-child, table th:first-child {
 }
 
 .add-form {
-    border: 1px solid #cecaca;
-    padding: 3% 5% 2% 5%;
-    margin-bottom: 10%;
-}
-
-.add-form button {
-    margin-left: 2%;
+    /* border: 1px solid #cecaca; */
+    padding: 1% 5% 1% 5%;
+    /* min-height: 220px; */
 }

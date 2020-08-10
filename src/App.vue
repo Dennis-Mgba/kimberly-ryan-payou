@@ -38,10 +38,8 @@ export default {
 }
 
 .nav {
-    width: 20%;
-    /* text-align: center; */
+    width: 18%;
     padding-top: 20px;
-    /* background: #179D27; */
     background: #1bb12c;
 }
 

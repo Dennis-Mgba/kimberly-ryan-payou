@@ -1,101 +1,75 @@
 <template lang="html">
-    <div class="employee-content">
-        <div class="row content">
-            <h3 class="content-head">Employee</h3>
-        <table>
-          <thead>
+  <div class="employee-profile">
+    <div class="row content">
+        <!-- <h3 style="text-align: center;">Welcome {{$route.params.name}}</h3> -->
+        <!-- <p>Employee {{ $route.params.id }}</p> -->
+        <h3 class="content-head">{{$route.params.name}} Personal Profile</h3>
+        <table id="profile-table">
+          <tbody>
             <tr>
-                <th scope="col">S/N</th>
-                <th scope="col">Name</th>
-                <th scope="col">Email</th>
-                <th scope="col">Department</th>
-                <th scope="col">Designation</th>
-                <th scope="col"></th>
+              <td>Name</td>
+              <td>{{ employee.firstname }} {{ employee.lastname }}</td>
             </tr>
-          </thead>
-          <tbody v-for="employee in employees"  :key="employee.id">
             <tr>
-                <td scope="row" data-label="S/N">{{ employee.id }}</td>
-                <td data-label="Name">{{ employee.firstname }} {{ employee.lastname }}</td>
-                <td data-label="Email">{{ employee.email }}</td>
-                <td data-label="Department">{{ employee.department }}</td>
-                <td data-label="Designation">{{ employee.designation }}</td>
-                <td class="table-btns">
-                    <button type="button" class="btn btn-warning">Edit</button>
-                    <button type="button" class="btn btn-danger">Delete</button>
-                </td>
+              <td>Email</td>
+              <td>{{ employee.email }}</td>
+            </tr>
+            <tr>
+              <td>Department</td>
+              <td>{{ employee.department }}</td>
+            </tr>
+            <tr>
+              <td>Designation</td>
+              <td>{{ employee.designation }}</td>
+            </tr>
+            <tr>
+              <td>Account Name</td>
+              <td>{{ employee.accountname }}</td>
+            </tr>
+            <tr>
+              <td>Account Number</td>
+              <td>{{ employee.accountnumber }}</td>
+            </tr>
+            <tr>
+              <td>Bank</td>
+              <td>{{ employee.bankname }}</td>
             </tr>
           </tbody>
         </table>
-        <div class="add-new">
-            <p><span class="glyphicon glyphicon-plus-sign" @click="toggleEmployeeForm"></span> Add Employee</p>
-            <form class="add-form" v-if="showEmployeeForm">
-              <div class="form-row">
-                <div class="form-group col-md-6">
-                  <label for="first name">First Name</label>
-                  <input type="text" class="form-control" placeholder="First name" v-model="employeeData.firstname">
-                </div>
-                <div class="form-group col-md-6">
-                  <label for="last name">Last Name</label>
-                  <input type="password" class="form-control" placeholder="Last name" v-model="employeeData.lastname">
-                </div>
-              </div>
-
-              <div class="form-group col-md-12">
-                <label for="email">Email</label>
-                <input type="email" class="form-control" placeholder="Email" v-model="employeeData.email">
-              </div>
-              <div class="form-row">
-                  <div class="form-group col-md-6">
-                    <label for="department">Department</label>
-                    <select class="form-control" v-model="employeeData.department">
-                      <option selected>Choose...</option>
-                      <option v-for="department in departments"  :key="department.id">{{ department.dept }}</option>
-                    </select>
-                  </div>
-                  <div class="form-group col-md-6">
-                    <label for="designation">Designation</label>
-                    <input type="text" class="form-control" v-model="employeeData.designation">
-                  </div>
-              </div>
-
-              <button type="submit" class="btn btn-primary">Add</button>
-            </form>
-        </div>
-        </div>
     </div>
+  </div>
 </template>
 
 <script>
 import employees from '@/data/employees'
-import departments from '@/data/departments'
 
 export default {
     data() {
         return {
-            employees: employees,
-            departments: departments,
-            employeeData: {
-                firstname: '',
-                lastname: '',
-                email: '',
-                department: '',
-                designation: ''
-            },
-            showEmployeeForm: false
+            employee: ''
         }
     },
-
-    methods: {
-        toggleEmployeeForm () {
-            this.showEmployeeForm = !this.showEmployeeForm
+    created() {
+        let employee = employees;
+        // console.log(employee);
+        for (var i = 0; i < employee.length; i++) {
+            let single = employee[i];
+            // console.log(single);
+            if (single.id == this.$route.params.id) {
+                // console.log(single);
+                this.employee = single
+            }
         }
     }
 }
 </script>
 
 <style lang="css" scoped>
-.employee-content {
+#profile-table td:first-child, #profile-table th:first-child {
+    width: 25%;
+}
 
+#profile-table td:first-child {
+    font-weight: 600;
 }
 </style>

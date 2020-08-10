@@ -11,7 +11,15 @@ Vue.use(VueRouter)
     component: Dashboard
   },
   {
-    path: '/employee',
+    path: '/employees',
+    name: 'Employees',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "about" */ '../views/Employees.vue')
+  },
+  {
+    path: '/employee/:name/:id',
     name: 'Employee',
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
@@ -19,20 +27,29 @@ Vue.use(VueRouter)
     component: () => import(/* webpackChunkName: "about" */ '../views/Employee.vue')
   },
   {
+    path: '/employee/new',
+    name: 'CreateEmployeeForm',
+    component: () => import(/* webpackChunkName: "about" */ '../views/CreateEmployeeForm.vue')
+  },
+  {
     path: '/department',
     name: 'Department',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/Department.vue')
+  },
+  {
+    path: '/department/create',
+    name: 'CreateDepartmentForm',
+    component: () => import(/* webpackChunkName: "about" */ '../views/CreateDepartmentForm.vue')
   },
   {
   path: '/payroll',
   name: 'Payroll',
-  // route level code-splitting
-  // this generates a separate chunk (about.[hash].js) for this route
-  // which is lazy-loaded when the route is visited.
   component: () => import(/* webpackChunkName: "about" */ '../views/Payroll.vue')
+  },
+  {
+  path: '/payslip/create',
+  name: 'CreatePayslip',
+  component: () => import(/* webpackChunkName: "about" */ '../views/CreatePayslip.vue')
   }
 ]
 
