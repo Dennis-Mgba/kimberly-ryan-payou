@@ -23,18 +23,18 @@
                   <label for="department">Year</label>
                   <select class="form-control">
                     <option selected>Choose...</option>
-                    <option>Years</option>
+                    <option v-for="year in years">{{ year }}</option>
                   </select>
                 </div>
                 <div class="form-group col-md-3">
                   <label for="department">Months</label>
                   <select class="form-control">
                     <option selected>Choose...</option>
-                    <option>Months</option>
+                    <option v-for="month in months">{{ month }}</option>
                   </select>
                 </div>
               </div>
-             <span class="btn open-form" @click="togglePayForm"><span class="glyphicon glyphicon-import"></span></span>
+             <span class="btn open-form" @click="togglePayForm"><span class="glyphicon glyphicon-import"></span> Click</span>
           </form>
       </div>
 
@@ -93,12 +93,15 @@
 <script>
 import employees from '@/data/employees'
 import departments from '@/data/departments'
+import months from '@/data/months'
 
 export default {
     data() {
         return {
             employees: employees,
             departments: departments,
+            months: months,
+            years: [],
             payData: {
                 salary: '',
                 pension: '',
@@ -113,9 +116,9 @@ export default {
         }
     },
 
-    // mounted() {
-    //
-    // },
+    mounted() {
+        this.generateArrayOfYears()
+    },
 
     methods: {
         togglePayForm () {
@@ -124,6 +127,15 @@ export default {
 
         generateSlip () {
             console.log(this.payData);
+        },
+
+        generateArrayOfYears() {
+          let max = new Date().getFullYear(), min = max - 9;
+
+          for (var i = max; i >= min; i--) {
+            this.years.push(i)
+          }
+          // return years
         }
     }
 }
