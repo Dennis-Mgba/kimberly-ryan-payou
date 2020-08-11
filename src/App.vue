@@ -49,4 +49,10 @@ export default {
     /* overflow: scroll; */
 }
 
+@media screen and (max-width: 800px) {
+    .app-content {
+        margin-left: 2%;
+    }
+}
+
 </style>

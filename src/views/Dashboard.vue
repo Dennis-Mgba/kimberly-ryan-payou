@@ -79,6 +79,13 @@ data() {
 .dash-company-logo {
     margin-top: 5%;
     margin-left: 11.5%;
+    max-width: 90%;
+    object-fit:cover;
 }
 
+@media screen and (max-width: 1250px) {
+    .dash-company-logo {
+        margin-left: 7%;
+    }
+}
 </style>

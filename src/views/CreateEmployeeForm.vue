@@ -96,4 +96,10 @@ export default {
 .add-form button {
     margin-left: 43.5%;
 }
+
+@media screen and (max-width: 600px) {
+    .add-form button {
+        margin-left: 30%;
+    }
+}
 </style>

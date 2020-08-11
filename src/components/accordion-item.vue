@@ -105,4 +105,10 @@ export default {
     background-color: #1ec832;
     border-right: 3.5px solid #F97B00;
 }
+
+@media screen and (max-width: 900px) {
+    ul {
+        padding-left: 10px;
+    }
+}
 </style>

@@ -31,4 +31,10 @@ export default {
 .dept-add-btn {
     margin-left: 47%;
 }
+
+@media screen and (max-width: 600px) {
+    .dept-add-btn {
+        margin-left: 43%;
+    }
+}
 </style>

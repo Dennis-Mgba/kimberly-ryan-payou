@@ -84,7 +84,7 @@
               </div>
 
               <button type="submit" class="btn btn-success generateslip-btn" @click="generateSlip">Generate Slip</button>
-              <p style="color: #F97B00;" >Click on generate slip for summary and net total</p>
+              <p class="note" >Click on generate slip for summary and net total</p>
           </form>
       </div>
   </div>
@@ -150,5 +150,23 @@ export default {
 
 .generateslip-btn {
     margin-left: 69%;
+}
+
+.note {
+    color: #F97B00;
+}
+
+@media screen and (max-width: 600px) {
+    .open-form {
+        margin-left: 34%;
+    }
+
+    .generateslip-btn {
+        margin-left: 30%;
+    }
+
+    .note {
+        margin-top: 20px;
+    }
 }
 </style>
