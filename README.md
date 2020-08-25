@@ -1,4 +1,6 @@
-# payou
+https://nifty-keller-3db9cc.netlify.app/
+
+Just a UI on the front-end with vue.js
 
 ## Project setup
 ```
